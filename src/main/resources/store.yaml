@@ -125,7 +125,7 @@ paths:
                                     - cursor
                                 properties:
                                     count:
-                                        $ref: '#/components/schemas/Limit'
+                                        $ref: '#/co\mponents/schemas/Limit'
                                     limit:
                                         $ref: '#/components/schemas/Limit'
                                     offset:
