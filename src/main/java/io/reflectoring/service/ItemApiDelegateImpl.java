@@ -12,10 +12,10 @@ import java.util.UUID;
 @Service
 public class ItemApiDelegateImpl implements ItemApiDelegate {
     @Autowired
-    ItemsList itemsList;
+    ItemsInmemoryDatabaseMap itemsInmemoryDatabaseMap;
 
     @Override
     public ResponseEntity<Item> apiGetItem(UUID uuid) {
-        return ResponseEntity.ok(Optional.ofNullable(itemsList.findById(uuid)).orElse(Item.builder().build()));
+        return ResponseEntity.ok(Optional.ofNullable(itemsInmemoryDatabaseMap.findById(uuid)).orElse(Item.builder().build()));
     }
 }

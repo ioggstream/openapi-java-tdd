@@ -7,10 +7,10 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Service
-public class ItemsList {
+public class ItemsInmemoryDatabaseMap {
     private final ConcurrentHashMap<UUID, Item> itemHashMap;
 
-    public ItemsList() {
+    public ItemsInmemoryDatabaseMap() {
         this.itemHashMap = new ConcurrentHashMap<>();
     }
 

@@ -14,7 +14,7 @@ import java.util.UUID;
 @Service
 public class ItemsApiDelegateImpl implements ItemsApiDelegate {
     @Autowired
-    ItemsList itemsList;
+    ItemsInmemoryDatabaseMap itemsInmemoryDatabaseMap;
 
     @Override
     public ResponseEntity<ItemStatus> apiPostItems(Object body) {
@@ -26,7 +26,7 @@ public class ItemsApiDelegateImpl implements ItemsApiDelegate {
                 .id(UUID.randomUUID())
                 .build();
         try {
-            itemsList.add(item);
+            itemsInmemoryDatabaseMap.add(item);
             return ResponseEntity.ok(ItemStatus.builder().id(item.getId()).status(ItemStatus.StatusEnum.SUCCESS).url("TBD").build());
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(ItemStatus.builder().status(ItemStatus.StatusEnum.FAILURE).build());
